@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="page-header">
+
+  <h1> Estatística da Questão</h1>
+</div>
+  <div class="row">
+    <div class="col-md-10">
+        <b>ID da questão:</b> {{ questao.idQuestao }}<br>
+        <b>Questão:</b> {{ questao.textoQuestao|safe }}<br>
+        <br>
+        <b>Número de vezes que a questão foi utilizada:</b> {{ nUtilizacao }}<br>
+        <b>Provas em que a questão foi utilizada:</b><br>
+        {% for prova in utilizacoes %}
+            {{ prova.idProva }} - {{ prova.dtRealizacao }}
+        {% endfor %}
+    </div>
+
+  </div>
+
+{% endblock %}
+

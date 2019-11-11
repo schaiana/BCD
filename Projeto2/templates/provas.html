@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="page-header">
+
+  <h1> Provas </h1>
+</div>
+  <div class="row">
+    <div class="col-md-6">
+    <table class="table table-striped">
+      <thead>
+      <tr>
+          <td>Id</td>
+          <td>Data</td>
+      </tr>
+      </thead>
+      <tbody>
+        {% for prova in provas %}
+          <tr>
+            <td><a href='/visualizarProva?idProva={{ prova.idProva }}'>{{ prova.idProva }}</a></td>
+            <td><a href='/visualizarProva?idProva={{ prova.idProva }}'>{{ prova.dtRealizacao }}</a></td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+    </div>
+
+  </div>
+  <div class="right"><a class="btn btn-primary" href="/gerarProvaSelDisciplina"> Gerar Prova </a></div>
+{% endblock %}

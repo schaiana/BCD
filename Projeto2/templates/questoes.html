@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="page-header">
+
+  <h1> Questões</h1>
+</div>
+  <div class="row">
+    <div class="col-md-10">
+    <table class="table table-striped">
+      <thead>
+      <tr>
+
+      </tr>
+      </thead>
+      <tbody>
+      {% for dado in questoes %}
+        <tr>
+            <td><a href='/estatisticaQuestao?idQuestao={{ dado.idQuestao }}'>{{ dado.textoQuestao|safe }}</a></td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+
+    </div>
+
+  </div>
+    <div class="right"><button id="idInserir"> Inserir </button></div>
+{% endblock %}
+
+{% block scripts %}
+  {{ super() }}
+  <script type="text/javascript">
+    $(function () {
+        $("#idInserir").click(function () {
+            window.location="inserirQuestao?idAssunto={{ idAssunto }}&idDisciplina={{ idDisciplina }}";
+        });
+    });
+  </script>
+{% endblock %}

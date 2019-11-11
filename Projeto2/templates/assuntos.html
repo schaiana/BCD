@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="page-header">
+
+  <h1> Assuntos</h1>
+</div>
+  <div class="row">
+    <div class="col-md-10">
+    <table class="table table-striped">
+      <thead>
+      <tr>
+
+      </tr>
+      </thead>
+      <tbody>
+      {% for dado in assuntos %}
+        <tr>
+          <td><a href='/questoes?idAssunto={{ dado.idAssunto }}&idDisciplina={{ dado.idDisciplina }}'>{{ dado.nmAssunto }}</a></td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+
+    </div>
+
+  </div>
+    <div class="right"><button id="idInserir"> Inserir </button></div>
+{% endblock %}
+
+{% block scripts %}
+  {{ super() }}
+  <script type="text/javascript">
+    $(function () {
+        $("#idInserir").click(function () {
+            window.location="inserirAssunto?idDisciplina={{ idDisciplina }}";
+        });
+    });
+  </script>
+{% endblock %}
